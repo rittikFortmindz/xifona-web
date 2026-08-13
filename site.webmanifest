@@ -1,0 +1,12 @@
+{
+  "name": "Xifona — Your AI Personal Stylist",
+  "short_name": "Xifona",
+  "description": "Instant AI feedback on silhouette, color harmony, and fit — from a single photo.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#0A0A0A",
+  "icons": [
+    { "src": "/images/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
