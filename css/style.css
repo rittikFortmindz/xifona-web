@@ -244,8 +244,8 @@ p.lead { font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--text-secondary)
 .nav-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: flex-start;
+  gap: 40px;
 }
 
 .logo {
@@ -260,6 +260,7 @@ p.lead { font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--text-secondary)
   display: none;
   align-items: center;
   gap: 36px;
+  margin-left: auto;
 }
 .site-nav a {
   font-size: 13px;
@@ -366,103 +367,13 @@ p.lead { font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--text-secondary)
   .hero-visual { justify-content: flex-end; }
 }
 
-/* Phone mockup */
-.phone-mock {
-  position: relative;
-  width: 280px;
-  aspect-ratio: 9 / 19.5;
-  background: linear-gradient(160deg, #151515, #0c0c0c);
-  border-radius: 46px;
-  border: 1px solid var(--border);
-  padding: 12px;
-  box-shadow:
-    0 0 0 8px rgba(255,255,255,0.02),
-    0 40px 80px -20px rgba(0, 179, 182, 0.35),
-    0 20px 60px -10px rgba(0,0,0,0.6);
+/* Hero app screenshot */
+.hero-app-shot {
+  width: min(300px, 78vw);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 40px 80px -20px rgba(0, 179, 182, 0.35)) drop-shadow(0 20px 60px -10px rgba(0, 0, 0, 0.6));
 }
-.phone-mock .phone-notch {
-  position: absolute;
-  top: 12px; left: 50%;
-  transform: translateX(-50%);
-  width: 90px; height: 22px;
-  background: #0c0c0c;
-  border-radius: 14px;
-  z-index: 3;
-}
-.phone-screen {
-  width: 100%; height: 100%;
-  background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
-  border-radius: 34px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 26px 16px 16px;
-}
-.phone-screen .ps-label {
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 8px;
-}
-.phone-screen .ps-title {
-  font-family: var(--font-display);
-  font-size: 17px;
-  margin-bottom: 14px;
-}
-.score-ring {
-  width: 108px; height: 108px;
-  border-radius: 50%;
-  margin: 6px auto 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: conic-gradient(var(--btn-start) 0deg 306deg, rgba(255,255,255,0.08) 306deg 360deg);
-  position: relative;
-}
-.score-ring::before {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border-radius: 50%;
-  background: #101010;
-}
-.score-ring .score-value {
-  position: relative;
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 700;
-  z-index: 2;
-}
-.score-ring .score-value small { display: block; font-family: var(--font-body); font-size: 9px; color: var(--text-secondary); font-weight: 500; letter-spacing: 0.1em; }
-.phone-tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; margin-bottom: 14px; }
-.phone-tags span {
-  font-size: 9.5px;
-  padding: 5px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  letter-spacing: 0.03em;
-}
-.phone-card-mini {
-  margin-top: auto;
-  background: var(--glass);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.phone-card-mini .chip-sm {
-  width: 30px; height: 30px;
-  border-radius: 9px;
-  background: linear-gradient(135deg, var(--neon-purple), var(--electric-blue));
-  flex-shrink: 0;
-}
-.phone-card-mini .mini-text strong { display: block; font-size: 11.5px; }
-.phone-card-mini .mini-text span { font-size: 10px; color: var(--text-secondary); }
 
 .phone-glow {
   position: absolute;
@@ -508,6 +419,58 @@ section { padding: 88px 0; }
 .card:hover { border-color: rgba(255,255,255,0.28); transform: translateY(-4px); background: var(--surface-high); }
 .card h3 { margin-bottom: 10px; }
 .card p { font-size: 14.5px; }
+
+/* Features — premium treatment */
+#features { position: relative; overflow: hidden; }
+#features::before {
+  content: "";
+  position: absolute;
+  top: -25%; left: 50%;
+  transform: translateX(-50%);
+  width: 900px; height: 700px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.09), transparent 65%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+#features .container { position: relative; }
+#features .grid.cols-3 { counter-reset: feature; }
+#features .card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--surface-high) 0%, var(--surface) 55%);
+  counter-increment: feature;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+#features .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.5), rgba(155, 92, 255, 0.35), transparent 65%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+#features .card::after {
+  content: counter(feature, decimal-leading-zero);
+  position: absolute;
+  top: 22px; right: 26px;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.07);
+  line-height: 1;
+  pointer-events: none;
+}
+#features .card:hover { box-shadow: 0 24px 60px -24px rgba(0, 212, 255, 0.3); }
+#features .card:hover::before { opacity: 1; }
+#features .card .chip {
+  box-shadow: 0 10px 24px -10px rgba(0, 179, 182, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
 
 .grid {
   display: grid;
