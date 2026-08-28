@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.xifona.app/sitemap.xml
+Sitemap: https://www.xifona.com/sitemap.xml
